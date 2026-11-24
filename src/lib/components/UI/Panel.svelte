@@ -209,11 +209,18 @@
 		padding-top: 1px;
 	}
 
+	:global(.panel-project-link) {
+		display: inline-block;
+		margin-top: 10px;
+	}
+
+	:global(.panel-project-link),
 	:global(.contact-panel a) {
 		color: #88aaff;
 		text-decoration: none;
 	}
 
+	:global(.panel-project-link:hover),
 	:global(.contact-panel a:hover) {
 		text-decoration: underline;
 	}

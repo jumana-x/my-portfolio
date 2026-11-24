@@ -20,7 +20,7 @@
 			<h1>{resume.about.name}</h1>
 			<p class="tagline">{resume.about.role}</p>
 			{#if resume.contact.available}
-				<span class="badge">Open to opportunities</span>
+				<span class="badge">Seeking COOP training</span>
 			{/if}
 		</div>
 	</header>
@@ -49,32 +49,16 @@
 			<h2 id="skills-heading">Skills &amp; Technologies</h2>
 
 			<div class="skill-grid">
-				<article>
-					<h3>Frontend</h3>
-					<ul>
-						{#each resume.skills.frontend as skill}
-							<li>{skill}</li>
-						{/each}
-					</ul>
-				</article>
-
-				<article>
-					<h3>Backend</h3>
-					<ul>
-						{#each resume.skills.backend as skill}
-							<li>{skill}</li>
-						{/each}
-					</ul>
-				</article>
-
-				<article>
-					<h3>Tools &amp; DevOps</h3>
-					<ul>
-						{#each resume.skills.tools as skill}
-							<li>{skill}</li>
-						{/each}
-					</ul>
-				</article>
+				{#each resume.skills as { label, items }}
+					<article>
+						<h3>{label}</h3>
+						<ul>
+							{#each items as skill}
+								<li>{skill}</li>
+							{/each}
+						</ul>
+					</article>
+				{/each}
 			</div>
 		</section>
 
@@ -93,7 +77,7 @@
 							{/each}
 						</ul>
 						{#if project.url}
-							<a href={project.url} rel="noopener" class="project-link">View project →</a>
+							<a href={project.url} rel="noopener" class="project-link">Open demo →</a>
 						{/if}
 					</article>
 				{/each}
@@ -109,16 +93,10 @@
 					<dd><a href="mailto:{resume.contact.email}">{resume.contact.email}</a></dd>
 
 					<dt>GitHub</dt>
-					<dd><a href="https://{resume.contact.github}" rel="noopener">{resume.contact.github}</a></dd>
+					<dd><a href={resume.contact.github} rel="noopener">{resume.contact.github.replace('https://', '')}</a></dd>
 
 					<dt>LinkedIn</dt>
-					<dd><a href="https://{resume.contact.linkedin}" rel="noopener">{resume.contact.linkedin}</a></dd>
-
-					<dt>Twitter</dt>
-					<dd>{resume.contact.twitter}</dd>
-
-					<dt>Location</dt>
-					<dd>{resume.contact.location}</dd>
+					<dd><a href={resume.contact.linkedin} rel="noopener">{resume.contact.linkedin.replace('https://www.', '')}</a></dd>
 				</dl>
 			</address>
 		</section>

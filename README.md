@@ -97,7 +97,7 @@ export const resumeData = {
     // ...
   },
   projects: [ /* your projects */ ],
-  skills: { frontend: [], backend: [], tools: [] },
+  skills: [{ label: 'Languages & Frameworks', items: ['Python'] }],
   contact: { email: "", github: "", linkedin: "" },
 };
 ```

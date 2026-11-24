@@ -6,9 +6,8 @@
 </script>
 
 <svelte:head>
+	<meta name="description" content="Contact {resume.about.name} about COOP training in IT or software development." />
 	<title>Contact {resume.about.name} — {resume.about.role}</title>
-	<meta name="description" content="Get in touch with {resume.about.name}, a {resume.about.role} based in {resume.contact.location}. {resume.contact.available ? 'Currently open to new opportunities.' : ''}" />
-	<link rel="canonical" href="https://alexmorgan.dev/contact" />
 </svelte:head>
 
 <div class="page">
@@ -16,9 +15,9 @@
 
 	<header>
 		<h1>Contact</h1>
-		<p class="role">{resume.about.name} · {resume.contact.location}</p>
+		<p class="role">{resume.about.name}</p>
 		{#if resume.contact.available}
-			<span class="badge">Open to opportunities</span>
+			<span class="badge">Seeking COOP training</span>
 		{/if}
 	</header>
 
@@ -31,19 +30,11 @@
 				</div>
 				<div class="dl-row">
 					<dt>GitHub</dt>
-					<dd><a href="https://{resume.contact.github}" rel="noopener noreferrer">{resume.contact.github}</a></dd>
+					<dd><a href={resume.contact.github} rel="noopener noreferrer">{resume.contact.github.replace('https://', '')}</a></dd>
 				</div>
 				<div class="dl-row">
 					<dt>LinkedIn</dt>
-					<dd><a href="https://{resume.contact.linkedin}" rel="noopener noreferrer">{resume.contact.linkedin}</a></dd>
-				</div>
-				<div class="dl-row">
-					<dt>Twitter</dt>
-					<dd>{resume.contact.twitter}</dd>
-				</div>
-				<div class="dl-row">
-					<dt>Location</dt>
-					<dd>{resume.contact.location}</dd>
+					<dd><a href={resume.contact.linkedin} rel="noopener noreferrer">{resume.contact.linkedin.replace('https://www.', '')}</a></dd>
 				</div>
 			</dl>
 		</address>

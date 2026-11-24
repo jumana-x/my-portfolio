@@ -9,7 +9,6 @@
 <svelte:head>
 	<title>About {resume.about.name} — {resume.about.role}</title>
 	<meta name="description" content="{resume.about.bio} {resume.about.facts.join('. ')}." />
-	<link rel="canonical" href="https://alexmorgan.dev/about" />
 </svelte:head>
 
 <div class="page">
@@ -19,7 +18,7 @@
 		<h1>{resume.about.name}</h1>
 		<p class="role">{resume.about.role}</p>
 		{#if resume.contact.available}
-			<span class="badge">Open to opportunities</span>
+			<span class="badge">Seeking COOP training</span>
 		{/if}
 	</header>
 

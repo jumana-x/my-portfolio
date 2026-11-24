@@ -28,6 +28,7 @@ function buildPanelContent(key: SceneObjectKey): PanelContent {
 						<h3>${p.name}</h3>
 						<p>${p.desc}</p>
 						<div class="tech-tags">${p.tech.map((t) => `<span>${t}</span>`).join('')}</div>
+						${p.url ? `<a class="panel-project-link" href="${p.url}" target="_blank" rel="noopener">Open demo ↗</a>` : ''}
 					</div>`
 				)
 				.join('');
@@ -35,7 +36,6 @@ function buildPanelContent(key: SceneObjectKey): PanelContent {
 		}
 
 		case 'bookshelf': {
-			const { frontend, backend, tools } = resume.skills;
 			const section = (label: string, items: string[]) => `
 				<div class="skill-group">
 					<h3>${label}</h3>
@@ -43,7 +43,7 @@ function buildPanelContent(key: SceneObjectKey): PanelContent {
 				</div>`;
 			return {
 				title: 'Skills',
-				html: section('Frontend', frontend) + section('Backend', backend) + section('Tools', tools)
+				html: resume.skills.map(({ label, items }) => section(label, items)).join('')
 			};
 		}
 
@@ -62,18 +62,16 @@ function buildPanelContent(key: SceneObjectKey): PanelContent {
 		}
 
 		case 'character': {
-			const { email, github, linkedin, twitter, location, available } = resume.contact;
+			const { email, github, linkedin, available } = resume.contact;
 			return {
 				title: 'Contact',
 				html: `
 					<div class="contact-panel">
-						${available ? '<p class="available-badge">Open to opportunities</p>' : ''}
+						${available ? '<p class="available-badge">Seeking COOP training</p>' : ''}
 						<ul>
 							<li><strong>Email</strong> <a href="mailto:${email}">${email}</a></li>
-							<li><strong>GitHub</strong> <a href="https://${github}" target="_blank" rel="noopener">${github}</a></li>
-							<li><strong>LinkedIn</strong> <a href="https://${linkedin}" target="_blank" rel="noopener">${linkedin}</a></li>
-							<li><strong>Twitter</strong> ${twitter}</li>
-							<li><strong>Location</strong> ${location}</li>
+							<li><strong>GitHub</strong> <a href="${github}" target="_blank" rel="noopener">${github.replace('https://', '')}</a></li>
+							<li><strong>LinkedIn</strong> <a href="${linkedin}" target="_blank" rel="noopener">${linkedin.replace('https://www.', '')}</a></li>
 						</ul>
 					</div>`
 			};

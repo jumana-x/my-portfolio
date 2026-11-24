@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3D Portfolio Room</title>
+  <title>Jumana Abdulfatah Abdullah Hussein | 3D Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -2214,30 +2214,26 @@
     <div class="panel-category">💻 Interactive Object · Laptop</div>
     <div class="panel-title">Projects</div>
     <div class="panel-divider"></div>
-    <div class="panel-desc">Shipped products ranging from real-time dashboards to accessible design systems.</div>
     ${portfolioData.projects.map(p => `
       <div class="project-card">
         <h4>${p.name}</h4><p>${p.desc}</p>
         <div class="tags tech">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      </div>`).join('')}
-    <div class="panel-links">
-      <a class="panel-link primary"    data-url="https://github.com">GitHub ↗</a>
-      <a class="panel-link secondary"  data-url="#">Live demos ↗</a>
-    </div>`;
+        ${p.url ? `<div class="panel-links"><a class="panel-link secondary" href="${p.url}" target="_blank" rel="noopener">Open demo ↗</a></div>` : ''}
+      </div>`).join('')}`;
     }
 
     function buildSkillsHTML() {
-      const s = portfolioData.skills;
-      const grid = (arr, dc) => `<div class="skills-grid">${arr.map(sk => `
-    <div class="skill-item"><div class="skill-dot ${dc}"></div>${sk}</div>`).join('')}</div>`;
+      const colors = ['', 'orange', 'green'];
+      const groups = portfolioData.skills.map(({ label, items }, index) => `
+    <div class="section-header">${label}</div>
+    <div class="skills-grid">${items.map(skill => `
+      <div class="skill-item"><div class="skill-dot ${colors[index % colors.length]}"></div>${skill}</div>`).join('')}
+    </div>`).join('');
       return `
     <div class="panel-category">📚 Interactive Object · Bookshelf</div>
     <div class="panel-title">Skills</div>
     <div class="panel-divider"></div>
-    <div class="section-header">Frontend</div>${grid(s.frontend, '')}
-    <div class="section-header">Backend &amp; Data</div>${grid(s.backend, 'orange')}
-    <div class="section-header">Tools &amp; Workflow</div>${grid(s.tools, 'green')}
-    <div class="panel-links"><a class="panel-link secondary" data-url="#">View CV ↗</a></div>`;
+    ${groups}`;
     }
 
     function buildAboutHTML() {
@@ -2260,12 +2256,10 @@
     <div class="panel-divider"></div>
     ${c.available ? `<div class="tag" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">
       <span style="width:7px;height:7px;border-radius:50%;background:#5af778;display:inline-block;box-shadow:0 0 6px #5af778"></span>
-      Available for work</div>`: ''}
+      Seeking COOP training</div>`: ''}
     ${[['✉️', 'Email', c.email, `mailto:${c.email}`],
-        ['🐙', 'GitHub', c.github, `https://${c.github}`],
-        ['💼', 'LinkedIn', c.linkedin, `https://${c.linkedin}`],
-        ['🐦', 'Twitter', c.twitter, null],
-        ['📍', 'Location', c.location, null]
+        ['🐙', 'GitHub', c.github.replace('https://', ''), c.github],
+        ['💼', 'LinkedIn', c.linkedin.replace('https://www.', ''), c.linkedin]
         ].map(([icon, label, val, href]) => `
       <div class="contact-item">
         <div class="contact-icon">${icon}</div>
@@ -2275,7 +2269,7 @@
       </div>`).join('')}
     <div class="panel-links">
       <a class="panel-link primary"   href="mailto:${c.email}">Send email ↗</a>
-      <a class="panel-link secondary" data-url="https://${c.linkedin}">LinkedIn ↗</a>
+      <a class="panel-link secondary" data-url="${c.linkedin}">LinkedIn ↗</a>
     </div>`;
     }
 

@@ -1,51 +1,58 @@
+// Resume data for the standalone HTML room.
 window.portfolioData = {
-  about: {
-    name:  "Alex Morgan",
-    role:  "Full-Stack & Creative Developer",
-    bio:   "I build fast, accessible, and visually rich web applications. Passionate about bridging design and engineering — from pixel-perfect interfaces to robust backend systems.",
-    facts: ["5+ years experience", "20+ shipped products", "Open-source contributor", "Coffee-driven ☕"],
-    links: [
-      { label: "GitHub",     url: "https://github.com", type: "primary"   },
-      { label: "Portfolio",  url: "#",                  type: "secondary"  },
-      { label: "Resume PDF", url: "#",                  type: "secondary"  },
-    ],
-  },
+	about: {
+		name: 'Jumana Abdulfatah Abdullah Hussein',
+		role: 'Final-year Computer Science student',
+		bio: 'Final-year Computer Science student at Arab Open University seeking COOP training in IT or software development.',
+		facts: [
+			'GPA 3.9/4.0',
+			'Dean’s List for two consecutive terms in 2026',
+			'Expected graduation May 2027',
+			'Sales and Marketing Representative at Falcon Power Global, Sep 2024 to present'
+		],
+		links: [
+			{ label: 'GitHub', url: 'https://github.com/jumana-x', type: 'primary' },
+			{ label: 'Portfolio', url: '/', type: 'secondary' }
+		]
+	},
 
-  projects: [
-    {
-      name: "NovaDash",
-      desc: "Real-time analytics dashboard with WebSocket streaming, D3 charts, and drag-and-drop layout builder.",
-      tech: ["React", "Node.js", "WebSocket", "D3"],
-    },
-    {
-      name: "ArcAPI",
-      desc: "Type-safe REST & GraphQL gateway with auto-generated docs, rate-limiting, and OAuth2.",
-      tech: ["TypeScript", "GraphQL", "PostgreSQL", "Redis"],
-    },
-    {
-      name: "ShiftCMS",
-      desc: "Headless CMS with live preview, multi-locale support, and a visual block editor.",
-      tech: ["Next.js", "Prisma", "tRPC", "S3"],
-    },
-    {
-      name: "LumaUI",
-      desc: "Accessible component library (WCAG 2.1 AA) with zero-runtime CSS and Storybook docs.",
-      tech: ["React", "Radix UI", "Vanilla Extract"],
-    },
-  ],
+	projects: [
+		{
+			name: 'LunaNav',
+			desc: 'Built a React and JavaScript prototype and integrated an existing 3D lunar terrain viewer. Team Falak-6 placed 1st at the Jeddah Local Event of the NASA Space Apps Challenge 2026.',
+			tech: ['React', 'JavaScript'],
+			url: 'https://lunanav-ten.vercel.app'
+		},
+		{
+			name: 'ZPARK',
+			desc: 'Team graduation project in progress. This smart parking system connects a Flutter app and Firebase services with license plate-based entrance checks and ESP32 sensors.',
+			tech: ['Flutter', 'Firebase', 'ESP32']
+		},
+		{
+			name: 'GameVerse',
+			desc: 'Solo game discovery and recommendation website built in Google AI Studio, connected to an n8n workflow, and integrated with an API from RapidAPI.',
+			tech: ['Google AI Studio', 'n8n', 'RapidAPI']
+		}
+	],
 
-  skills: {
-    frontend: ["React / Next.js", "TypeScript", "Three.js / WebGL", "Tailwind CSS", "Framer Motion", "Vite"],
-    backend:  ["Node.js / Bun", "PostgreSQL", "Redis", "GraphQL", "Prisma", "Docker"],
-    tools:    ["Git / GitHub", "Figma", "Vercel / AWS", "Playwright", "Storybook", "CI/CD"],
-  },
+	skills: [
+		{ label: 'Languages & Frameworks', items: ['Python', 'Java', 'JavaScript', 'SQL', 'HTML', 'React'] },
+		{ label: 'Design & Modeling', items: ['Figma', 'StarUML'] },
+		{ label: 'Databases & Backend', items: ['MySQL', 'MongoDB', 'Firebase'] },
+		{
+			label: 'AI & Automation',
+			items: ['Prompt engineering', 'Google AI Studio', 'n8n', 'API integration with RapidAPI']
+		},
+		{
+			label: 'Tools',
+			items: ['VS Code', 'IntelliJ IDEA', 'NetBeans', 'Jupyter Notebook', 'GitHub', 'Vercel', 'MySQL Workbench', 'MongoDB Compass', 'GanttProject']
+		}
+	],
 
-  contact: {
-    email:     "alex@example.dev",
-    github:    "github.com/alexmorgan",
-    linkedin:  "linkedin.com/in/alexmorgan",
-    twitter:   "@alexmorgan_dev",
-    location:  "San Francisco, CA",
-    available: true,
-  },
+	contact: {
+		email: 'jumanaxowili@gmail.com',
+		github: 'https://github.com/jumana-x',
+		linkedin: 'https://www.linkedin.com/in/jumanaowili1/',
+		available: true
+	}
 };

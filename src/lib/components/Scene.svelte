@@ -983,6 +983,7 @@
 		});
 
 		window.addEventListener('click', (e: MouseEvent) => {
+			if (e.target instanceof Element && e.target.closest('.panel')) return;
 			if (isAnimating) return;
 			if (Date.now() - lastTouchEndTime < 350) return;
 			updatePointer(e); raycaster.setFromCamera(pointer, camera);
@@ -1002,6 +1003,7 @@
 		}, { passive: true });
 
 		window.addEventListener('touchend', (e: TouchEvent) => {
+			if (e.target instanceof Element && e.target.closest('.panel')) return;
 			lastTouchEndTime = Date.now();
 			const t = e.changedTouches[0];
 			updatePointer(t); raycaster.setFromCamera(pointer, camera);
